@@ -1,0 +1,50 @@
+apply plugin: 'com.android.library'
+// 添加以下内容
+apply plugin: 'com.novoda.bintray-release'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+}
+
+//添加
+publish {
+    userOrg = 'hsia'//bintray.com用户名
+    groupId = 'com.crearo'//jcenter上的路径
+    artifactId = 'mcu'//项目名称
+    publishVersion = '1.0.0'//版本号
+    desc = '这是一个创世平台muc集成的c8jar封装的library'//描述
+    website = 'https://gitee.com/xiaweifeng/sample-mcu.git'//
+}
+//上传到jcenter第二种方式
+ext {
+    PUBLISH_GROUP_ID = 'com.xiaweifeng.htest'
+    PUBLISH_ARTIFACT_ID = 'HTest'
+    PUBLISH_VERSION = '1.0.0'
+}
+apply from: 'https://raw.githubusercontent.com/blundell/release-android-library/master/android-release-aar.gradle'
