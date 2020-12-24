@@ -48,8 +48,8 @@ class MainActivity : AppCompatActivity() {
     private fun init() {
         client = MCUEntity.getInstance(applicationContext)
         // 设置码率类型为实时流
-        // 设置码率类型为实时流
         client?.setStreamType(VideoParam.STREAM_REALTIME)
+        // 设置码率类型为实时流
         client?.setResolution(VideoParam.RESOLUTION_CIF)
         btn_login.setOnClickListener {
             val ip = et_ip.text.toString().trim()
@@ -63,16 +63,16 @@ class MainActivity : AppCompatActivity() {
         if (!TextUtils.isEmpty(ip) && !TextUtils.isEmpty(user) && !TextUtils.isEmpty(password)) {
             progressBar.setVisibility(View.VISIBLE)
             val info = LoginInfo()
-            info.addr = ip
-            info.port = 8866
-            info.user = user
-            info.password = password
-            info.epid = "system"
-            info.isFixAddr = true
+            info.addr = ip              //平台地址
+            info.port = 8866            //平台端口
+            info.user = user            //登陆用户名
+            info.password = password    //登陆密码
+            info.epid = "system"        //企业id
+            info.isFixAddr = true       //是否需要穿透网闸 trur穿透，反之亦然
             if (client != null) {
-                client!!.logout()
-                client!!.login(info)
-                client!!.setConnectStateCallback(connectStateCallback)
+                client!!.logout()       //先登出
+                client!!.login(info)    //再登陆
+                client!!.setConnectStateCallback(connectStateCallback)  //登陆回调
             }
         } else {
             Toast.makeText(this, "输入ip、用户名及密码", Toast.LENGTH_SHORT).show()

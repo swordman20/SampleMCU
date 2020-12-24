@@ -58,20 +58,22 @@ class PlayVideoActitity : AppCompatActivity(), View.OnClickListener {
     private fun playVideo(puid: String) {
         mRenderView.holder.addCallback(object : SurfaceHolder.Callback {
             override fun surfaceCreated(holder: SurfaceHolder) {
-                mRenderView.setCallback(mRenderCallback)
-                mRenderView.encVideoStreamCallback = encVideoStreamCallback
+                mRenderView.setCallback(mRenderCallback)                    //RenderView播放视频回调
+                mRenderView.encVideoStreamCallback = encVideoStreamCallback //视频流监听回调
                 val cameras = ResUtils
-                        .getCameraResources(puid)
-                if (cameras == null || 0 >= cameras.size) return
-                val inputVideo = cameras[0] // 预览第resIdx个摄像头资源
-                mRenderView.rend(inputVideo)
-                initAudioRes(inputVideo)
+                        .getCameraResources(puid)           //通过puid获取视频流
+                if (cameras == null || 0 >= cameras.size){ //如果视频流不存在
+                    startTimer()
+                }else{
+                    val inputVideo = cameras[0]      // 预览第resIdx个摄像头资源
+                    mRenderView.rend(inputVideo)                //开始播放
+                    initAudioRes(inputVideo)                    //初始化音频
+                }
             }
-
             override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) {}
             override fun surfaceDestroyed(holder: SurfaceHolder) {
-                mRenderView.stopRend()
-                client?.stopPlay()
+                mRenderView.stopRend()  //surface销毁时，关闭正在播放的视频资源
+                client?.stopPlay()      //关闭正在播放的音频资源
             }
         })
         btnDownAudio.setOnTouchListener(OnTouchListener { v, event ->
