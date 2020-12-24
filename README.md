@@ -7,10 +7,10 @@
  打开你项目module 下的 build.gradle 文件里面添加如下引用
 
 ```java
-	implementation 'com.crearo:mcu:1.0.0'
+	implementation 'com.crearo:mcu:1.0.1'
 ```
 实际效果如下：
-![在这里插入图片描述](https://img-blog.csdnimg.cn/img_convert/c7f4f8c012b43d0ba08daa7a69dbdd7e.png#pic_center)
+![在这里插入图片描述](https://tva1.sinaimg.cn/large/0081Kckwly1glz7l5mq3wj30po081myc.jpg)
 #### 配置SDK所需要的权限
 
 
@@ -180,7 +180,7 @@ mRenderView.holder.addCallback(object : SurfaceHolder.Callback {
             override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) {}
             override fun surfaceDestroyed(holder: SurfaceHolder) {
                 mRenderView.stopRend()  //surface销毁时，关闭正在播放的视频资源
-                client?.stopPlay()      //关闭正在播放的音频资源
+                client?.stopOA()      //关闭正在播放的音频资源
             }
         })
 ```

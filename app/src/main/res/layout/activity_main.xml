@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="ip"
-            android:text=""
+            android:text="112.26.204.104"
             tools:text="ip" />
 
         <EditText
@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="user"
-            android:text=""
+            android:text="admin"
             tools:text="用户名" />
 
         <EditText
@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="password"
-            android:text=""
+            android:text="ahgs20201117"
             tools:text="密码" />
 
         <Button

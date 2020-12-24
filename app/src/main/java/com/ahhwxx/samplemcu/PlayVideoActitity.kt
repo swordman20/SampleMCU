@@ -73,7 +73,7 @@ class PlayVideoActitity : AppCompatActivity(), View.OnClickListener {
             override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) {}
             override fun surfaceDestroyed(holder: SurfaceHolder) {
                 mRenderView.stopRend()  //surface销毁时，关闭正在播放的视频资源
-                client?.stopPlay()      //关闭正在播放的音频资源
+                client?.stopOA()        //关闭正在播放的音频资源
             }
         })
         btnDownAudio.setOnTouchListener(OnTouchListener { v, event ->
