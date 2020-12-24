@@ -17,7 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="puid"
-            android:text="15BD5021F753CC835E"
             tools:text="puid" />
 
         <Button

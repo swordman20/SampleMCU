@@ -27,7 +27,7 @@ import java.util.*
  * 播放视频的界面
  */
 class PlayVideoActitity : AppCompatActivity(), View.OnClickListener {
-    private final val TAG: String = "PlayVideoActitity"
+    private val TAG: String = "PlayVideoActitity"
     private var client: MCUEntity? = null
     private var timer: Timer? = null
     private var timerTask: TimerTask? = null
