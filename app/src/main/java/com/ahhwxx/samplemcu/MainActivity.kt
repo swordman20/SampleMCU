@@ -85,7 +85,8 @@ class MainActivity : AppCompatActivity() {
             runOnUiThread {
                 progressBar.visibility = View.GONE
                 Toast.makeText(this@MainActivity, "登录成功", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this@MainActivity, PUIDActivity::class.java))
+//                startActivity(Intent(this@MainActivity, PUIDActivity::class.java))
+                startActivity(Intent(this@MainActivity, DeviceListActivity::class.java))
                 finish()
             }
         }
@@ -112,7 +113,6 @@ class MainActivity : AppCompatActivity() {
                 mPermissionList.add(permissions[i])
             }
         }
-        // 有权限没有通过，需要申请
         // 有权限没有通过，需要申请
         if (mPermissionList.size > 0) {
             ActivityCompat.requestPermissions(this, permissions, mRequestCode)

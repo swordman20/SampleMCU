@@ -12,8 +12,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <!--  语音对接需要蓝牙权限  -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> <!-- 语音对接需要蓝牙权限 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
 
     <application
@@ -25,7 +24,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SampleMCU">
-        <activity android:name=".PlayVideoActitity" android:theme="@style/VideoTheme"></activity>
+        <activity
+            android:name=".PlayVideoActitity"
+            android:theme="@style/VideoTheme" />
+        <activity android:name=".DeviceListActivity"/>
         <activity android:name=".PUIDActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
